@@ -1,13 +1,15 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import testUtil from '../testUtil.mjs';
+import tu from '../testUtil.mjs';
+
 
 const baseUrl = '/hello/world';
 const qryStr = '?hello=world';
 const query = { hello: 'world' };
 
+
 const verbLineDict = {
-  baseUrl:,
+  baseUrl,
   method: 'GET',
   originalUrl: baseUrl + qryStr,
   url: '/' + qryStr, // NB: Express creates this slash from thin air.
@@ -27,7 +29,7 @@ const hotDetails = {
 };
 
 const advancedDetails = {
-  rawHeaders: headerPairs.flatten(),
+  rawHeaders: headerPairs.flat(),
   rawTrailers: [],
   statusCode: null,
   statusMessage: null,
@@ -60,7 +62,7 @@ const boringDummies = {
   httpVersion: '1.1',
   httpVersionMajor: 1,
   httpVersionMinor: 1,
-  next: testUtil.bomb('next'),
+  next: tu.bomb('next'),
   res: { mock: 'res' },
   socket: { mock: 'socket' },
   upgrade: false,
@@ -79,20 +81,19 @@ const boringDescrs = {
   upgrade: 'false',
 };
 
-const detailedBase = {
-  '^': verbLineDict,
-  ...hotDetails,
-  ...advancedDetails,
-};
-
 
 const EX = {
+  verbLineDict,
+  hotDetails,
+  advancedDetails,
+
   boringDescrs,
   boringDummies,
-  detailedBase,
-  hotDetails,
   lowlineDescrs,
   lowlineDummies,
+
+  ...tu.mockRequestApi,
 };
+
 
 export default EX;
