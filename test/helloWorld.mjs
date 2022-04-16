@@ -6,12 +6,21 @@ import hwFixt from './fixtures/helloWorld.mjs';
 import summarize from '../src/index.mjs';
 
 
+test('helloWorld: logLineArgs: defaults', (t) => {
+  t.plan(1);
+  const req = hwFixt.assemble();
+  const sum = summarize.logLineArgs()(req);
+  t.same(sum, ['GET', '/?hello=world', '?']);
+});
+
+
 test('helloWorld: detailed: defaults', (t) => {
   t.plan(1);
   const req = hwFixt.assemble();
   const sum = summarize.detailed()(req);
   t.same(sum, hwFixt.detailedBase());
 });
+
 
 test('helloWorld: detailed: defaultBoringKeys', (t) => {
   t.plan(1);
@@ -22,6 +31,7 @@ test('helloWorld: detailed: defaultBoringKeys', (t) => {
     unexpected: hwFixt.boringDescrs,
   });
 });
+
 
 test('helloWorld: detailed: lowLineBoring', (t) => {
   t.plan(1);
