@@ -48,7 +48,7 @@ which takes the request object and returns a summary that
 `opt` is an optional options object that supports these optional keys:
 
 * (All names of [default Key Name Lists
-  ](src/detailed/defaultKeyNameLists.mjs)):
+  ](src/detailed/defaultKeyNameLists.req.mjs)):
   See comments in that file for how to adjust them.
 
 * `lowLineBoring` (boolean, default: true):

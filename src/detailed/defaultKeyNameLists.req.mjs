@@ -49,7 +49,7 @@ const keyNameLists = {
 
     'aborted',
     'client',
-    'complete',
+    'complete', // Whether the server has received the entire request.
     'end',
     'httpVersion',
     'httpVersionMajor',

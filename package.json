@@ -1,5 +1,5 @@
 { "name": "summarize-express-request-pmb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Summarize an Express-style HTTP request object. Tries to make result JSON-friendly.",
   "keywords": [],
 

@@ -4,10 +4,8 @@ import loMapValues from 'lodash.mapvalues';
 import mustBe from 'typechecks-pmb/must-be';
 import objPop from 'objpop';
 
-import dfKnl from './defaultKeyNameLists.mjs';
 
-
-function configure(origOpt) {
+function configure(dfKnl, origOpt) {
   const optPop = objPop(origOpt, { mustBe }).mustBe;
   const how = {
     lowLineBoring: optPop('bool', 'lowLineBoring', true),
