@@ -1,5 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
+import isStr from 'is-string';
 import loMapValues from 'lodash.mapvalues';
 
 import popDumpRqKey from './popDumpRqKey.mjs';
@@ -12,6 +13,13 @@ function summ(how, origReq) {
     defaultBoringKeys,
     ...sectionKnls
   } = how.knl;
+
+  const origHeaders = origReq.headers;
+  if (origHeaders) {
+    const hdr = { ...origHeaders };
+    rqRemain.headers = hdr;
+    if (isStr(hdr.cookie)) { hdr.cookie = hdr.cookie.split(/;\s*/); }
+  }
 
   function justDrop(l) { if (l) { l.forEach(k => delete rqRemain[k]); } }
   justDrop(boringKeys);
